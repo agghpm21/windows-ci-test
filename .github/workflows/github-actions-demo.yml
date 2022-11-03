@@ -5,6 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: windows-latest
     steps:
+      - run: scp
+      - run: ssh -V
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: install python
         uses: actions/setup-python@v4
@@ -12,3 +14,4 @@ jobs:
           python-version: '3.10' 
       - run: "python --version"
       - run: "python -c 'import platform; print(platform.uname());'"
+      - run: "pip --freeze"
