@@ -5,7 +5,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: windows-latest
     steps:
-      - run: scp
       - run: ssh -V
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: install python
