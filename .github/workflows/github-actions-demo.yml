@@ -13,4 +13,13 @@ jobs:
           python-version: '3.10' 
       - run: "python --version"
       - run: "python -c 'import platform; print(platform.uname());'"
-      - run: "pip --freeze"
+      - run: "pip freeze"
+      - name: Deploy to web server
+        uses: moonpathbg/scp_uploader@latest
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          key : ${{ secrets.SSH_KEY }}
+          source: "./"
+          target: "~/"
