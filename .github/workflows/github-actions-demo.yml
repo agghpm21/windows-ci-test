@@ -11,3 +11,4 @@ jobs:
         with:
           python-version: '3.10' 
       - run: "python --version"
+      - run: "python -c 'import platform; print(platform.uname());"
