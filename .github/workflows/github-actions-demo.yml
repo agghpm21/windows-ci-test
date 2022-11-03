@@ -16,10 +16,11 @@ jobs:
       - run: "pip freeze"
       - name: Deploy to web server
         uses: moonpathbg/scp_uploader@latest
+      - name: local remote scp
+        uses: cross-the-world/scp-pipeline@master
         with:
           host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          username: ${{ secrets.USERNAME }}
-          key : ${{ secrets.SSH_KEY }}
-          source: "./"
-          target: "~/"
+          user: ${{ secrets.DC_UUSERNAMESER }}
+          pass: "PENIS"
+          local: "./test/test1*"
+          remote: /home/github/test/test1/
