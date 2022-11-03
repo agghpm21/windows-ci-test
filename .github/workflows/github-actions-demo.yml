@@ -14,8 +14,6 @@ jobs:
       - run: "python --version"
       - run: "python -c 'import platform; print(platform.uname());'"
       - run: "pip freeze"
-      - name: Deploy to web server
-        uses: moonpathbg/scp_uploader@latest
       - name: local remote scp
         uses: cross-the-world/scp-pipeline@master
         with:
