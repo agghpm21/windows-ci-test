@@ -6,6 +6,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: ssh -V
+      - run: echo $PSVersionTable.PSVersion
+      - run: echo $HOME
+      - run: dir $HOME
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: install python
         uses: actions/setup-python@v4
@@ -14,11 +17,4 @@ jobs:
       - run: "python --version"
       - run: "python -c 'import platform; print(platform.uname());'"
       - run: "pip freeze"
-      - name: local remote scp
-        uses: cross-the-world/scp-pipeline@master
-        with:
-          host: ${{ secrets.HOST }}
-          user: ${{ secrets.DC_UUSERNAMESER }}
-          pass: "PENIS"
-          local: "./test/test1*"
-          remote: /home/github/test/test1/
+
