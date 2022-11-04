@@ -35,7 +35,7 @@ jobs:
       - name: pip cache
         uses: actions/cache@v2
         with:
-          path: "~\AppData\Local\pip\Cache"
+          path: ~\AppData\Local\pip\Cache
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements_build.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
