@@ -13,6 +13,8 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
         run: |
           echo "$env:SSH_KEY" > $HOME\.ssh\id_ed25519 
+      - run: echo "|1|iaok0FnuroTRJfCmQtAdAsb+dpg=|HhExAgnOJ3HmS1jRwT69hguY7kg= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHtS6yi0C8BNu7M08Uceb8Y6ShthrH8yECNrr8/QPIbtZrZLX3qWchVXi9oGKRfZvE0fa0xyQ+6aPx4nmbMaG/g=" > $HOME\.ssh\known_hosts
+      - run: echo "|1|Q9ehyv+pk3N2VdiKSuTGNzXz7zY=|7DBCA/pmTw0/eqHePj6NfndPNvw= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHtS6yi0C8BNu7M08Uceb8Y6ShthrH8yECNrr8/QPIbtZrZLX3qWchVXi9oGKRfZvE0fa0xyQ+6aPx4nmbMaG/g=" >> $HOME\.ssh\known_hosts
       - run: dir $HOME
       - run: dir $HOME\.ssh
       - shell: pwsh
