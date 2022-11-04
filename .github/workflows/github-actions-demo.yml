@@ -20,7 +20,7 @@ jobs:
         env:
           HOST: ${{ secrets.HOST }}
         run: |
-          ssh github@$env:SSH_KEY ls
+          ssh -v -u github $env:SSH_KEY ls
       
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: install python
