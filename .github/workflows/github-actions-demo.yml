@@ -35,14 +35,15 @@ jobs:
       - name: Get pip cache dir
         id: pip-cache
         run: |
-          echo "::set-output name=dir::$(pip cache dir)"
+          echo "pip_cache_dir=$(pip cache dir)" >> $GITHUB_STATE
       - name: pip cache
         uses: actions/cache@v2
         with:
-          path: ${{ steps.pip-cache.outputs.dir }}
+          path: ${{ env.pip_cache_dir }}
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements_build.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
       
       - run: "python -m pip install --upgrade pip setuptools wheel"
       - run: "python -m pip install PyInstaller pygount requests"
