@@ -7,6 +7,7 @@ jobs:
     steps:
       - run: echo $PSVersionTable.PSVersion
       - run: echo $HOME
+      - run: write-host $pwd.Path
       - run: md $HOME\.ssh
       - shell: pwsh
         env:
@@ -17,6 +18,7 @@ jobs:
       - run: echo "|1|Q9ehyv+pk3N2VdiKSuTGNzXz7zY=|7DBCA/pmTw0/eqHePj6NfndPNvw= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHtS6yi0C8BNu7M08Uceb8Y6ShthrH8yECNrr8/QPIbtZrZLX3qWchVXi9oGKRfZvE0fa0xyQ+6aPx4nmbMaG/g=" >> $HOME\.ssh\known_hosts
       - run: dir $HOME
       - run: dir $HOME\.ssh
+      - run: dir
       - shell: pwsh
         env:
           HOST: ${{ secrets.HOST }}
@@ -30,5 +32,7 @@ jobs:
           python-version: '3.10' 
       - run: "python --version"
       - run: "python -c 'import platform; print(platform.uname());'"
+      - run: "python -m pip install --upgrade pip setuptools wheel"
+      - run: "python -m pip install PyInstaller pygount requests"
       - run: "pip freeze"
 
