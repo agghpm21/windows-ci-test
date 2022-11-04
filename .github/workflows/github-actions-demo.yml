@@ -9,7 +9,7 @@ jobs:
       - run: echo $PSVersionTable.PSVersion
       - run: echo $HOME
       - run: md $HOME\.ssh
-      - run: echo $SSH_KEY >$>HOME\.ssh\id_ed25519
+      - run: echo $SSH_KEY > $HOME\.ssh\id_ed25519
       - run: dir $HOME
       - run: dir $HOME\.ssh
       - run: cat id_ed25519
