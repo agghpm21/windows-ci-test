@@ -5,7 +5,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: windows-latest
     steps:
-      - run: ssh -V
       - run: echo $PSVersionTable.PSVersion
       - run: echo $HOME
       - run: md $HOME\.ssh
@@ -20,7 +19,7 @@ jobs:
         env:
           HOST: ${{ secrets.HOST }}
         run: |
-          ssh -v -u github $env:SSH_KEY ls
+          ssh -l -u github $env:SSH_KEY ls
       
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: install python
