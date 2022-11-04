@@ -32,17 +32,14 @@ jobs:
           python-version: '3.10' 
       - run: "python --version"
       - run: "python -c 'import platform; print(platform.uname());'"
-      - name: Get pip cache dir
-        id: pip-cache
-        run: |
-          echo "pip_cache_dir=$(pip cache dir)" >> $GITHUB_STATE
       - name: pip cache
         uses: actions/cache@v2
         with:
-          path: ${{ env.pip_cache_dir }}
+          path: "~\AppData\Local\pip\Cache"
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements_build.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
 
       
       - run: "python -m pip install --upgrade pip setuptools wheel"
